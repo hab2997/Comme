@@ -7,8 +7,8 @@ include("functions/functions.php");
 <html>
 	<head>
 		<title>My Online Shop</title> 
- 		<meta charset="utf-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
+ 		  <meta charset="utf-8">
+  		  <meta name="viewport" content="width=device-width, initial-scale=1">
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		  <link rel="stylesheet" href="includes/styles/style.css" media="all" />
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -109,7 +109,7 @@ include("functions/functions.php");
 						}
 					?>
 					
-					<b style="color:yellow">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" style="color:yellow">Go to Cart</a>
+					<b class= "cart-text">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" class= "cart-text">Go to Cart</a>
 					
 					
 					<?php 

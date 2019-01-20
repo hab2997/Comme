@@ -80,10 +80,9 @@ margin:auto;
 background:black;
 }
 .content_wrapper {
-width:1200px;
+width:1205px;
 margin:auto;
 background:pink;
-
 }
 
 #content_area {
@@ -151,4 +150,7 @@ padding-bottom: 30px;
 } 
 #footer a:hover{
 	 color: blue;
+}
+.cart-text{
+	color: red;
 }
