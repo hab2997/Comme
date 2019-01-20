@@ -164,11 +164,10 @@
 	</div> 
 <!--Main Container ends here-->
 
-		<div id="footer">
-		
-		<h2 style="text-align:center; padding-top:30px;">&copy; 2014 by www.OnlineTuting.com</h2>
-		
-		</div>
+	<div id="footer">
+		<h3>&copy; PRESENTING AT BVICAM</h3>
+		<h5><a href="admin_area/login.php">Admin Login</a></h5>		
+	</div>
 
 </body>
 </html>

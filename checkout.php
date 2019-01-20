@@ -40,9 +40,7 @@ include("functions/functions.php");
 
 	<!--Header starts here-->
 	<div class="header_wrapper">
-	
-		<a href="index.php"><img id="logo" src="includes/images/logo.gif" /> </a>
-		<img id="banner" src="includes/images/ad_banner.gif" />
+		<img id="logo" src="includes/images/logo.jpg" />
 	</div>
 	<!--Header ends here-->
 			
@@ -56,6 +54,26 @@ include("functions/functions.php");
 		
 			<div id="sidebar">
 			
+				<div id="shopping_cart"> 
+					
+					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
+					
+					<?php 
+					if(isset($_SESSION['customer_email'])){
+					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
+					}
+					else {
+					echo "<b>Welcome Guest:</b>";
+					}
+					?>
+					
+					
+					<b style="color:yellow">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" style="color:yellow">Go to Cart</a>
+					
+					
+					
+					</span>
+				</div>
 				<div id="sidebar_title">Categories</div>
 				
 				<ul id="cats">
@@ -79,27 +97,6 @@ include("functions/functions.php");
 			
 			<?php cart(); ?>
 			
-			<div id="shopping_cart"> 
-					
-					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
-					
-					<?php 
-					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
-					}
-					else {
-					echo "<b>Welcome Guest:</b>";
-					}
-					?>
-					
-					
-					<b style="color:yellow">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" style="color:yellow">Go to Cart</a>
-					
-					
-					
-					</span>
-			</div>
-			
 				<div id="products_box">
 				
 				<?php 
@@ -121,21 +118,14 @@ include("functions/functions.php");
 		</div>
 		<!--Content wrapper ends-->
 		
-		
-		
-		<div id="footer">
-		
-		<h2 style="text-align:center; padding-top:30px;">&copy; 2014 by www.OnlineTuting.com</h2>
-		
-		</div>
-	
-	
-	
-	
-	
-	
 	</div> 
 <!--Main Container ends here-->
+
+	<div id="footer">
+	
+	<h2 style="text-align:center; padding-top:30px;">&copy; 2014 by www.OnlineTuting.com</h2>
+	
+	</div>
 
 
 </body>

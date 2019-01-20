@@ -26,7 +26,14 @@ include("includes/db.php");
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>
 			<li><a href="all_products.php">All Products</a></li>
-			<li><a href="customer/my_account.php">My Account</a></li>
+			<?php 
+				if(isset($_SESSION['customer_email'])){
+				echo "<li><a href='customer/my_account.php'>My Account</a></li>" ;
+				}
+				else {
+				echo "<li><a href='customer_login.php'>Login</a></li>";
+					}
+			?>
 			<li><a href="cart.php">Shopping Cart</a></li>
 		
 		</ul>
@@ -44,8 +51,7 @@ include("includes/db.php");
 
 	<!--Header starts here-->
 	<div class="header_wrapper">
-		<a href="index.php"><img id="logo" src="includes/images/logo.gif" /> </a>
-		<img id="banner" src="includes/images/ad_banner.gif" />
+		<img id="logo" src="includes/images/logo.jpg" />
 	</div>
 	<!--Header ends here-->
 	
@@ -239,7 +245,7 @@ include("includes/db.php");
 
 	<div id="footer">
 		<h3>&copy; PRESENTING AT BVICAM</h3>
-		<h4><a href="admin_area/login.php">Admin Login</a></h4>
+		<h5><a href="admin_area/login.php">Admin Login</a></h5>
 	</div>
 </body>
 </html>
