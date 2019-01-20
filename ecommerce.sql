@@ -1,23 +1,25 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.8
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 09, 2014 at 06:44 AM
--- Server version: 5.5.34-MariaDB-cll-lve
--- PHP Version: 5.4.23
+-- Host: 127.0.0.1
+-- Generation Time: Jan 20, 2019 at 08:10 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `onlinetu_ecommerce`
+-- Database: `ecomm`
 --
 
 -- --------------------------------------------------------
@@ -26,20 +28,18 @@ SET time_zone = "+00:00";
 -- Table structure for table `admins`
 --
 
-CREATE TABLE IF NOT EXISTS `admins` (
-  `user_id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admins` (
+  `user_id` int(10) NOT NULL,
   `user_email` varchar(255) NOT NULL,
-  `user_pass` varchar(255) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `user_pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`user_id`, `user_email`, `user_pass`) VALUES
-(1, 'awpareshan@gmail.com', 'wali'),
-(2, 'saima@yahoo.com', 'khan');
+(3, 'akbatra567@gmail.com', 'akbatra');
 
 -- --------------------------------------------------------
 
@@ -47,11 +47,10 @@ INSERT INTO `admins` (`user_id`, `user_email`, `user_pass`) VALUES
 -- Table structure for table `brands`
 --
 
-CREATE TABLE IF NOT EXISTS `brands` (
-  `brand_id` int(100) NOT NULL AUTO_INCREMENT,
-  `brand_title` text NOT NULL,
-  PRIMARY KEY (`brand_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+CREATE TABLE `brands` (
+  `brand_id` int(100) NOT NULL,
+  `brand_title` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `brands`
@@ -71,12 +70,19 @@ INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 -- Table structure for table `cart`
 --
 
-CREATE TABLE IF NOT EXISTS `cart` (
+CREATE TABLE `cart` (
   `p_id` int(10) NOT NULL,
   `ip_add` varchar(255) NOT NULL,
-  `qty` int(10) NOT NULL,
-  PRIMARY KEY (`p_id`)
+  `qty` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `ip_add`, `qty`) VALUES
+(6, '::1', 7),
+(8, '::1', 7);
 
 -- --------------------------------------------------------
 
@@ -84,11 +90,10 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- Table structure for table `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `categories` (
-  `cat_id` int(100) NOT NULL AUTO_INCREMENT,
-  `cat_title` text NOT NULL,
-  PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+CREATE TABLE `categories` (
+  `cat_id` int(100) NOT NULL,
+  `cat_title` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
@@ -108,8 +113,8 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 -- Table structure for table `customers`
 --
 
-CREATE TABLE IF NOT EXISTS `customers` (
-  `customer_id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `customers` (
+  `customer_id` int(10) NOT NULL,
   `customer_ip` varchar(255) NOT NULL,
   `customer_name` text NOT NULL,
   `customer_email` varchar(100) NOT NULL,
@@ -118,16 +123,8 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `customer_city` text NOT NULL,
   `customer_contact` varchar(255) NOT NULL,
   `customer_address` text NOT NULL,
-  `customer_image` text NOT NULL,
-  PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`customer_id`, `customer_ip`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`) VALUES
-(6, '119.157.220.50', 'Abdul Wali', 'awpareshan@gmail.com', 'walikhan', 'Pakistan', 'Karachi', '3243423', 'dfads', 'abdul-wali-ustaad1.jpg');
+  `customer_image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -135,16 +132,15 @@ INSERT INTO `customers` (`customer_id`, `customer_ip`, `customer_name`, `custome
 -- Table structure for table `orders`
 --
 
-CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
+  `order_id` int(100) NOT NULL,
   `p_id` int(100) NOT NULL,
   `c_id` int(100) NOT NULL,
   `qty` int(100) NOT NULL,
   `invoice_no` int(100) NOT NULL,
   `status` text NOT NULL,
-  `order_date` date NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+  `order_date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
@@ -166,16 +162,15 @@ INSERT INTO `orders` (`order_id`, `p_id`, `c_id`, `qty`, `invoice_no`, `status`,
 -- Table structure for table `payments`
 --
 
-CREATE TABLE IF NOT EXISTS `payments` (
-  `payment_id` int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `payments` (
+  `payment_id` int(100) NOT NULL,
   `amount` int(100) NOT NULL,
   `customer_id` int(100) NOT NULL,
   `product_id` int(100) NOT NULL,
   `trx_id` varchar(255) NOT NULL,
   `currency` text NOT NULL,
-  `payment_date` date NOT NULL,
-  PRIMARY KEY (`payment_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+  `payment_date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payments`
@@ -201,17 +196,16 @@ INSERT INTO `payments` (`payment_id`, `amount`, `customer_id`, `product_id`, `tr
 -- Table structure for table `products`
 --
 
-CREATE TABLE IF NOT EXISTS `products` (
-  `product_id` int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `products` (
+  `product_id` int(100) NOT NULL,
   `product_cat` int(100) NOT NULL,
   `product_brand` int(100) NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_price` int(100) NOT NULL,
   `product_desc` text NOT NULL,
   `product_image` text NOT NULL,
-  `product_keywords` text NOT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `product_keywords` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
@@ -224,6 +218,105 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
 (8, 3, 5, 'Nokia Tablet', 450, '<p>this is a great thing....</p>', 'nokia-windows-200-dollar-tablet2-640x353.jpg', 'Samsung, Cameras, Special'),
 (9, 1, 2, 'Dell Pink Laptop', 500, '<p>this is a very nice <strong>laptop</strong> and I like it very much....</p>', '1.jpg', 'dell, laptops, new, special'),
 (10, 1, 1, 'HP Envy Laptop', 400, '<p>this is so much nice laptop..</p>', 'original.jpg', 'dell, laptops, new, special');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`brand_id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `payment_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

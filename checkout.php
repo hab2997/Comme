@@ -18,7 +18,7 @@ include("functions/functions.php");
 	</head>
 <body>
 	<!--Navigation Bar starts-->
-	<div class="menubar">
+		<div class="menubar navbar navbar-expand-sm bg-dark fixed-top ">
 		
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>

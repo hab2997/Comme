@@ -21,7 +21,7 @@ include("includes/db.php");
 <body>
 
 	<!--Navigation Bar starts-->
-	<div class="menubar">
+		<div class="menubar navbar navbar-expand-sm bg-dark fixed-top ">
 		
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>

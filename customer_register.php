@@ -19,7 +19,7 @@ include("includes/db.php");
 <body>
 	
 	<!--Navigation Bar starts-->
-	<div class="menubar">
+		<div class="menubar navbar navbar-expand-sm bg-dark fixed-top ">
 		
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>
@@ -122,18 +122,7 @@ include("includes/db.php");
 						<tr>
 							<td align="right">Customer Country:</td>
 							<td>
-							<select name="c_country">
-								<option>Select a Country</option>
-								<option>Afghanistan</option>
-								<option>India</option>
-								<option>Japan</option>
-								<option>Pakistan</option>
-								<option>Israel</option>
-								<option>Nepal</option>
-								<option>United Arab Emirates</option>
-								<option>United States</option>
-								<option>United Kingdom</option>
-							</select>
+							<input type="text" name="c_country" placeholder="Country">
 							
 							</td>
 						</tr>

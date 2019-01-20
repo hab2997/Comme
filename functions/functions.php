@@ -187,20 +187,19 @@ function getPro(){
 		$pro_image = $row_pro['product_image'];
 	
 		echo "
+				<a href='details.php?pro_id=$pro_id'>
 				<div id='single_product'>
-				
+					
 					<h3>$pro_title</h3>
 					
 					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 					
 					<p><b> Price:  $pro_price </b></p>
 					
-					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
-					
-					<a href='index.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
+					<a href='index.php?add_cart=$pro_id'><button style='width: 100%'>Add to Cart</button></a>
 				
 				</div>
-		
+				</a>
 		
 		";
 	

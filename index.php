@@ -26,7 +26,7 @@ include("functions/functions.php");
 	</head>
 <body>
 		<!--Navigation Bar starts-->
-	<div class="menubar">
+	<div class="menubar navbar navbar-expand-sm bg-dark fixed-top ">
 		
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>
@@ -43,7 +43,7 @@ include("functions/functions.php");
 		
 		</ul>
 		
-		<div id="form">
+		<div id="form" class="navbar-right">
 			<form id="fm" method="get" action="results.php" enctype="multipart/form-data">
 				<input type="text" name="user_query" placeholder="Search a Product"/ > 
 				<input type="submit" name="search" value="Search" />

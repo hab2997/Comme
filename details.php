@@ -18,7 +18,7 @@
 <body>
 	
 	<!--Navigation Bar starts-->
-	<div class="menubar">
+		<div class="menubar navbar navbar-expand-sm bg-dark fixed-top ">
 		
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>
@@ -49,9 +49,7 @@
 	
 	<!--Header starts here-->
 	<div class="header_wrapper">
-	
-		<a href="index.php"><img id="logo" src="includes/images/logo.gif" /> </a>
-		<img id="banner" src="includes/images/ad_banner.gif" />
+		<img id="logo" src="includes/images/logo.jpg" />
 	</div>
 	<!--Header ends here-->
 	
