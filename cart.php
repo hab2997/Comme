@@ -62,20 +62,20 @@ include("includes/db.php");
 		<div class="content_wrapper">
 		
 			<div id="sidebar">	
-			<div id="shopping_cart" style="text-align: center;"> 
+		<div id="shopping_cart" style="text-align: center;"> 
 					
 				<span style=" font-size:17px; padding:5px; line-height:40px;">
 					
 					<?php 
 					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
+					echo "<b>Welcome:</b><br/>" . $_SESSION['customer_email'] ;
 					}
 					else {
 					echo "<b>Welcome Guest:</b>";
 						}
 					?>
 					
-					<b class= "cart-text">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" class= "cart-text">Go to Cart</a>
+					<b class= "cart-text">Shopping Cart</b><br/> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <br/><a href="cart.php" class= "cart-text">Go to Cart</a>
 					
 					
 					<?php 
@@ -131,20 +131,21 @@ include("includes/db.php");
 		while($p_price=mysqli_fetch_array($run_price)){
 			
 			$pro_id = $p_price['p_id']; 
-			
+			$_SESSION['qty'] = $p_price['qty'];
 			$pro_price = "select * from products where product_id='$pro_id'";
 			
 			$run_pro_price = mysqli_query($con,$pro_price); 
 			
 			while ($pp_price = mysqli_fetch_array($run_pro_price)){
 			
-			$product_price = array($pp_price['product_price']);
+			$single_price = $pp_price['product_price'] * $_SESSION['qty'];
+			$product_price = array($single_price);
 			
 			$product_title = $pp_price['product_title'];
 			
 			$product_image = $pp_price['product_image']; 
 			
-			$single_price = $pp_price['product_price'];
+			
 			
 			$values = array_sum($product_price); 
 			
@@ -158,33 +159,15 @@ include("includes/db.php");
 						<img src="admin_area/product_images/<?php echo $product_image;?>" width="60" height="60"/>
 						</td>
 						<td><input type="text" size="4" name="qty" value="<?php echo $_SESSION['qty'];?>"/></td>
-						<?php 
-						if(isset($_POST['update_cart'])){
-						
-							$qty = $_POST['qty'];
-							
-							$update_qty = "update cart set qty='$qty'";
-							
-							$run_qty = mysqli_query($con, $update_qty); 
-							
-							$_SESSION['qty']=$qty;
-							
-							$total = $total*$qty;
-						}
-						
-						
-						?>
-						
-						
-						<td><?php echo "$" . $single_price; ?></td>
+						<td><?php echo $single_price . " INR"; ?></td>
 					</tr>
-					
+						
 					
 				<?php } } ?>
 				
 				<tr>
 						<td colspan="4" align="right"><b>Sub Total:</b></td>
-						<td><?php echo "$" . $total;?></td>
+						<td><?php echo $total . " INR";?></td>
 					</tr>
 					
 					<tr align="center">
@@ -227,6 +210,16 @@ include("includes/db.php");
 		echo "<script>window.open('index.php','_self')</script>";
 		
 		}
+		
+			$changeqty = $_POST['qty'];
+			
+			$update_qty = "UPDATE cart set qty = '$changeqty' where ip_add='$ip' AND p_id='$pro_id";
+			
+			$run_qty = mysqli_query($con, $update_qty); 
+			
+			$_SESSION['qty']=$qty;
+			
+			$total = $total;	
 	
 	}
 	echo @$up_cart = updatecart();

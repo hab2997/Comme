@@ -61,19 +61,19 @@
 			<div id="sidebar">
 		
 				<div id="shopping_cart" style="text-align: center;"> 
-						
-					<span style=" font-size:17px; padding:5px; line-height:40px;">
+					
+				<span style=" font-size:17px; padding:5px; line-height:40px;">
 					
 					<?php 
 					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
+					echo "<b>Welcome:</b><br/>" . $_SESSION['customer_email'] ;
 					}
 					else {
 					echo "<b>Welcome Guest:</b>";
 						}
 					?>
 					
-					<b class= "cart-text">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" class= "cart-text">Go to Cart</a>
+					<b class= "cart-text">Shopping Cart</b><br/> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <br/><a href="cart.php" class= "cart-text">Go to Cart</a>
 					
 					
 					<?php 
@@ -86,8 +86,8 @@
 						echo "<a href='logout.php' style='color:orange;'>Logout</a>";
 					}
 					?>
-					</span>
-				</div>	
+				</span>
+			</div>	
 				<div id="sidebar_title">Categories</div>
 				
 				<ul id="cats">

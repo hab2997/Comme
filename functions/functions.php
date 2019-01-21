@@ -37,10 +37,17 @@ function cart(){
 		$run_check = mysqli_query($con, $check_pro); 
 		
 		if(mysqli_num_rows($run_check)>0){
-			echo ""; }
+			while($row = mysqli_fetch_array($run_check)){
+				
+				$_SESSION['qty'] = $row['qty']; 
+				$qty = $_SESSION['qty'] + 1;
+				$update_qty = "UPDATE cart set qty = '$qty' where ip_add='$ip' AND p_id='$pro_id'";
+				$run_update = mysqli_query($con, $update_qty);
+			}
+		}
 	else 
 	{
-		$insert_pro = "insert into cart (p_id,ip_add) values ('$pro_id','$ip')";
+		$insert_pro = "insert into cart (p_id,ip_add, qty) values ('$pro_id','$ip', '$qty')";
 		
 		$run_pro = mysqli_query($con, $insert_pro); 
 		
@@ -173,7 +180,7 @@ function getPro(){
 
 	global $con; 
 	
-	$get_pro = "select * from products order by RAND() LIMIT 0,9";
+	$get_pro = "select * from products order by RAND() LIMIT 0,6";
 
 	$run_pro = mysqli_query($con, $get_pro); 
 	

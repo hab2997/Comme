@@ -54,26 +54,34 @@ include("functions/functions.php");
 		
 			<div id="sidebar">
 			
-				<div id="shopping_cart"> 
+			<div id="shopping_cart" style="text-align: center;"> 
 					
-					<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
+				<span style=" font-size:17px; padding:5px; line-height:40px;">
 					
 					<?php 
 					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
+					echo "<b>Welcome:</b><br/>" . $_SESSION['customer_email'] ;
 					}
 					else {
 					echo "<b>Welcome Guest:</b>";
-					}
+						}
 					?>
 					
-					
-					<b style="color:yellow">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" style="color:yellow">Go to Cart</a>
-					
+					<b class= "cart-text">Shopping Cart</b><br/> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <br/><a href="cart.php" class= "cart-text">Go to Cart</a>
 					
 					
-					</span>
-				</div>
+					<?php 
+					if(!isset($_SESSION['customer_email']))
+					{
+						echo "<a href='checkout.php' style='color:orange;'>Login</a>";
+					}
+					else 
+					{
+						echo "<a href='logout.php' style='color:orange;'>Logout</a>";
+					}
+					?>
+				</span>
+			</div>
 				<div id="sidebar_title">Categories</div>
 				
 				<ul id="cats">
@@ -122,9 +130,8 @@ include("functions/functions.php");
 <!--Main Container ends here-->
 
 	<div id="footer">
-	
-	<h2 style="text-align:center; padding-top:30px;">&copy; 2014 by www.OnlineTuting.com</h2>
-	
+		<h3>&copy; PRESENTING AT BVICAM</h3>
+		<h5><a href="admin_area/login.php">Admin Login</a></h5>
 	</div>
 
 

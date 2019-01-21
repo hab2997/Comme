@@ -6,13 +6,20 @@ include("includes/functions/functions.php");
 <html>
 	<head>
 		<title>My Online Shop</title>		
-	<link rel="stylesheet" href="includes/styles/style.css" media="all" /> 
+	  	  <meta charset="utf-8">
+  		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="includes/styles/style.css" media="all" />
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 	</head>
 	
 <body>
 
 	<!--Navigation Bar starts-->
-	<div class="menubar">
+	<div class="menubar navbar navbar-expand-sm bg-dark fixed-top">
 		
 		<ul id="menu">
 			<li><a href="../index.php">Home</a></li>
@@ -23,7 +30,7 @@ include("includes/functions/functions.php");
 		</ul>
 		
 		<div id="form">
-			<form method="get" action="results.php" enctype="multipart/form-data">
+			<form method="get" action="../results.php" enctype="multipart/form-data">
 				<input type="text" name="user_query" placeholder="Search a Product"/ > 
 				<input type="submit" name="search" value="Search" />
 			</form>
@@ -35,11 +42,10 @@ include("includes/functions/functions.php");
 	
 	<!--Header starts here-->
 	<div class="header_wrapper">
-		<a href="../index.php"><img id="logo" src="images/logo.gif" /> </a>
-		<img id="banner" src="images/ad_banner.gif" />
+		<img id="logo" src="includes/images/logo.jpg" />
 	</div>
 	<!--Header ends here-->
-	
+		
 	<!--Main Container starts here-->
 	<div class="main_wrapper">	
 
@@ -48,6 +54,32 @@ include("includes/functions/functions.php");
 		<div class="content_wrapper">
 		
 			<div id="sidebar">
+			
+				<div id="shopping_cart"> 
+					
+					<span style="float:right; font-size:17px; padding:5px; line-height:40px;">
+					
+					<?php 
+					if(isset($_SESSION['customer_email'])){
+					echo "<b>Welcome:</b><br/>" . $_SESSION['customer_email'] ;
+					
+					}
+					?>
+					
+					<?php 
+					if(!isset($_SESSION['customer_email'])){
+					
+					echo "<a href='../checkout.php' style='color:orange;'>Login</a>";
+					
+					}
+					else {
+					echo "<a href='../logout.php' style='color:orange;'>Logout</a>";
+					}
+					
+					?>
+	
+					</span>
+			</div>
 			
 				<div id="sidebar_title">My Account:</div>
 				
@@ -81,34 +113,8 @@ include("includes/functions/functions.php");
 		
 			<div id="content_area">
 			
-			<?php cart(); ?>
-			
-			<div id="shopping_cart"> 
-					
-					<span style="float:right; font-size:17px; padding:5px; line-height:40px;">
-					
-					<?php 
-					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] ;
-					
-					}
-					?>
-					
-					<?php 
-					if(!isset($_SESSION['customer_email'])){
-					
-					echo "<a href='../checkout.php' style='color:orange;'>Login</a>";
-					
-					}
-					else {
-					echo "<a href='../logout.php' style='color:orange;'>Logout</a>";
-					}
-					
-					?>
-	
-					</span>
-			</div>
-			
+			<?php cart(); ?>	
+		
 				<div id="products_box">
 				
 				<?php 

@@ -30,7 +30,7 @@
 			
 			$total +=$values;
 			
-}
+	}
 }
 
 			// getting Quantity of the product 

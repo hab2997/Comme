@@ -98,7 +98,7 @@ include("functions/functions.php");
 					
 					<?php 
 					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
+					echo "<b>Welcome:</b><br/>" . $_SESSION['customer_email'] ;
 					}
 					else {
 					echo "<b>Welcome Guest:</b>";
