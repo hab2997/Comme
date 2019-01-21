@@ -53,7 +53,7 @@ include("functions/functions.php");
 		<!--Navigation Bar ends-->
 
 	<!--Header starts here-->
-	<div id= "demo" class="carousel slide header_slider" data-ride="carousel">
+	<div id= "demo" class="carousel slide header" data-ride="carousel">
 	  <ul class="carousel-indicators">
 	    <li data-target="#demo" data-slide-to="0" class="active"></li>
 	    <li data-target="#demo" data-slide-to="1"></li>
@@ -63,22 +63,16 @@ include("functions/functions.php");
 	    <div class="carousel-item active">
 	      <img src="includes/images/ads1.png" alt="Los Angeles" width="1100" height="500">
 	      <div class="carousel-caption">
-	        <h3>Fitness Band</h3>
-	        <p>Best In class</p>
 	      </div>   
 	    </div>
 	    <div class="carousel-item">
 	      <img src="includes/images/2nd.png" alt="Chicago" width="1100" height="500">
 	      <div class="carousel-caption">
-	        <h3>Chicago</h3>
-	        <p>Thank you, Chicago!</p>
 	      </div>   
 	    </div>
 	    <div class="carousel-item">
 	      <img src="includes/images/ads.png" alt="New York" width="1100" height="500">
 	      <div class="carousel-caption">
-	        <h3>New York</h3>
-	        <p>We love the Big Apple!</p>
 	      </div>   
 	    </div>
 	  </div>
@@ -111,7 +105,7 @@ include("functions/functions.php");
 						}
 					?>
 					
-					<b class= "cart-text">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" class= "cart-text">Go to Cart</a>
+					<b class= "cart-text">Shopping Cart</b><br/> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <br/><a href="cart.php" class= "cart-text">Go to Cart</a>
 					
 					
 					<?php 

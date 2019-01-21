@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2019 at 08:10 PM
+-- Generation Time: Jan 21, 2019 at 06:50 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -62,7 +62,9 @@ INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 (3, 'LG'),
 (4, 'Samsung'),
 (5, 'Sony'),
-(6, 'Toshiba');
+(6, 'Toshiba'),
+(7, 'Prabhat Publications'),
+(8, 'Amazon');
 
 -- --------------------------------------------------------
 
@@ -81,8 +83,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`p_id`, `ip_add`, `qty`) VALUES
-(6, '::1', 7),
-(8, '::1', 7);
+(7, '::1', 0),
+(10, '::1', 0);
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,9 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 (3, 'Mobiles'),
 (4, 'Computers'),
 (5, 'Banana'),
-(6, 'iPhones');
+(6, 'iPhones'),
+(7, 'Books'),
+(8, 'Tablets');
 
 -- --------------------------------------------------------
 
@@ -212,12 +216,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`) VALUES
-(5, 3, 4, 'Samsung Camera', 900, '<p>This is a great samsung mobile, you must buy it in order to have some really good fun.&nbsp;</p>', 'Samsung-Galaxy-Tab-tablet.jpg', 'Samsung, Cameras, Special'),
+(5, 0, 0, 'Samsung Camera', 900, '<p>This is a great samsung mobile, you must buy it in order to have some really good fun.&nbsp;</p>', 'Vivo-NEX.jpg', 'Samsung, Cameras, Special'),
 (6, 3, 6, 'HTC mobile ', 200, '<p>this one is a great one.</p>', 'HTC-Google-Nexus-One-2.jpg', 'mobiles, new, special'),
 (7, 2, 6, 'Toshiba Camera ', 250, '<p>This is a great camera...</p>', 'professional-video-camera.jpg', 'Toshiba, cameras, Special'),
 (8, 3, 5, 'Nokia Tablet', 450, '<p>this is a great thing....</p>', 'nokia-windows-200-dollar-tablet2-640x353.jpg', 'Samsung, Cameras, Special'),
 (9, 1, 2, 'Dell Pink Laptop', 500, '<p>this is a very nice <strong>laptop</strong> and I like it very much....</p>', '1.jpg', 'dell, laptops, new, special'),
-(10, 1, 1, 'HP Envy Laptop', 400, '<p>this is so much nice laptop..</p>', 'original.jpg', 'dell, laptops, new, special');
+(10, 1, 1, 'HP Envy Laptop', 400, '<p>this is so much nice laptop..</p>', 'original.jpg', 'dell, laptops, new, special'),
+(11, 7, 7, 'Born to win', 350, '<ul class=\"product-info-list\" style=\"margin: 0px; padding: 0px 20px 20px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); list-style: none; font-family: Raleway, sans-serif; font-size: 14px;\">\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Author</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block;\">Zig Ziglar &amp; Tom Ziglar</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px; background-color: #f3f3f3;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">ISBN</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block; font-family: Arial, Helvetica, sans-serif;\">9789386231055</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Language</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block;\">ENGLISH</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px; background-color: #f3f3f3;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Publisher</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block;\">Prabhat Prakashan</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Edition</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block;\">1</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px; background-color: #f3f3f3;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Publication Year</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block; font-family: Arial, Helvetica, sans-serif;\">2016</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Number of pages</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block; font-family: Arial, Helvetica, sans-serif;\">192</span></li>\r\n<li style=\"margin: 0px; padding: 15px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 1125px; background-color: #f3f3f3;\"><label style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 328.5px; display: inline-block; font-weight: 600;\">Binding Style</label>&nbsp;<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline-block;\">Hard Cover</span></li>\r\n</ul>', '1472463161.jpg', 'Motivation, Self-help');
 
 --
 -- Indexes for dumped tables
@@ -285,13 +290,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -315,7 +320,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

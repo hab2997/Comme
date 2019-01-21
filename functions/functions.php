@@ -120,7 +120,7 @@ function cart(){
 		
 		}
 		
-		echo "$" . $total;
+		echo $total . " INR";
 		
 	
 	}
@@ -173,7 +173,7 @@ function getPro(){
 
 	global $con; 
 	
-	$get_pro = "select * from products order by RAND() LIMIT 0,6";
+	$get_pro = "select * from products order by RAND() LIMIT 0,9";
 
 	$run_pro = mysqli_query($con, $get_pro); 
 	
@@ -190,11 +190,11 @@ function getPro(){
 				<a href='details.php?pro_id=$pro_id'>
 				<div id='single_product'>
 					
-					<h3>$pro_title</h3>
-					
 					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 					
-					<p><b> Price:  $pro_price </b></p>
+					<h3>$pro_title</h3>
+					
+					<p><b> Price: $pro_price INR</b></p>
 					
 					<a href='index.php?add_cart=$pro_id'><button style='width: 100%'>Add to Cart</button></a>
 				
@@ -239,19 +239,19 @@ function getCatPro(){
 		$pro_image = $row_cat_pro['product_image'];
 	
 		echo "
+			<a href='details.php?pro_id=$pro_id'>
 				<div id='single_product'>
-				
-					<h3>$pro_title</h3>
 					
 					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 					
-					<p><b> $ $pro_price </b></p>
+					<h3>$pro_title</h3>
 					
-					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
+					<p><b>Price: $pro_price INR</b></p>
 					
-					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
+					<a href='index.php?pro_id=$pro_id'><button style='width: 100%'>Add to Cart</button></a>
 				
 				</div>
+			</a>
 		
 		";
 		
@@ -290,20 +290,19 @@ function getBrandPro(){
 		$pro_image = $row_brand_pro['product_image'];
 	
 		echo "
+			<a href='details.php?pro_id=$pro_id'>
 				<div id='single_product'>
-				
-					<h3>$pro_title</h3>
 					
 					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 					
-					<p><b> $ $pro_price </b></p>
+					<h3>$pro_title</h3>
 					
-					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
+					<p><b>Price: $pro_price INR</b></p>
 					
-					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
+					<a href='index.php?pro_id=$pro_id'><button style='width: 100%'>Add to Cart</button></a>
 				
 				</div>
-		
+			</a>
 		";
 		
 	

@@ -74,7 +74,7 @@
 						}
 					?>
 					
-					<b class= "cart-text">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" class= "cart-text">Go to Cart</a>
+					<b class= "cart-text">Shopping Cart</b><br/> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <br/><a href="cart.php" class= "cart-text">Go to Cart</a>
 					
 					
 					<?php 
@@ -136,7 +136,7 @@
 					
 					<img src='admin_area/product_images/$pro_image' width='400' height='300' />
 					
-					<p><b> $ $pro_price </b></p>
+					<p><b>Price: $pro_price INR</b></p>
 					
 					<p>$pro_desc </p>
 					

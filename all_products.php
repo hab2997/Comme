@@ -126,7 +126,7 @@
 							
 							<img src='admin_area/product_images/$pro_image' width='180' height='180' />
 							
-							<p><b> $ $pro_price </b></p>
+							<p><b>Price: $pro_price INR</b></p>
 							
 							<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
 							

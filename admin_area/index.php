@@ -22,8 +22,6 @@ else {
 <body> 
 
 	<div class="main_wrapper">
-	
-	
 		<div id="header"></div>
 		
 		<div id="right">
@@ -102,12 +100,6 @@ else {
 		
 		?>
 		</div>
-
-
-
-
-
-
 	</div>
 
 
