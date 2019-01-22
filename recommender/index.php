@@ -56,7 +56,7 @@
 	<h3>Rate This Product</h3>
 	<table>
 		<form method="get">
-			<tr><td><input type="text" name="pro_id" value="<?php echo $_GET['pro_id']?>"  readonly></td>
+			<tr><td><input type="hidden" name="pro_id" value="<?php echo $_GET['pro_id']?>"  readonly></td>
 				<td><input type="text" name="rating" placeholder="Rate Out of 10" autocomplete="off" required/></td>
 			<td><input type="submit" value="Rate"></td></tr>
 		</form>

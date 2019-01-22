@@ -36,7 +36,7 @@ include("functions/functions.php");
 					echo "<li><a href='customer/my_account.php'>My Account</a></li>" ;
 					}
 					else {
-					echo "<li><a href='#' id='myBtn'>Login</a></li>";
+					echo "<li><a href='#' class='myBtn'>Login</a></li>";
 						}
 					?>
 			<li><a href="cart.php">Shopping Cart</a></li>
@@ -111,7 +111,7 @@ include("functions/functions.php");
 					<?php 
 					if(!isset($_SESSION['customer_email']))
 					{
-						echo "<a href='checkout.php' style='color:orange;'>Login</a>";
+						echo "<a href='#' class='myBtn'>Login</a>";
 					}
 					else 
 					{
@@ -166,14 +166,14 @@ include("functions/functions.php");
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" action="login.php">
+          <form role="form" action="login.php" method="POST">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email" name="email">
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email" name="email" required/>
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password" name="pass">
+              <input type="password" class="form-control" id="psw" placeholder="Enter password" name="pass" required/>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
@@ -195,7 +195,7 @@ include("functions/functions.php");
 
 <script>
 	$(document).ready(function(){
-  	$("#myBtn").click(function(){
+  	$(".myBtn").click(function(){
     $("#myModal").modal();
   });
 });

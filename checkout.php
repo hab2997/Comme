@@ -23,7 +23,14 @@ include("functions/functions.php");
 		<ul id="menu">
 			<li><a href="index.php">Home</a></li>
 			<li><a href="all_products.php">All Products</a></li>
-			<li><a href="customer/my_account.php">My Account</a></li>
+			<?php 
+			if(isset($_SESSION['customer_email'])){
+			echo "<li><a href='customer/my_account.php'>My Account</a></li>" ;
+			}
+			else {
+			echo "<li><a href='#' class='myBtn'>Login</a></li>";
+				}
+			?>
 			<li><a href="cart.php">Shopping Cart</a></li>
 		</ul>
 		
