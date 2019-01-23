@@ -108,9 +108,7 @@
 				<div id="products_box">
 			<?php 
 			$get_pro = "SELECT * from products order by product_title ASC";
-
-			$run_pro = mysqli_query($con, $get_pro); 
-			
+			$run_pro = mysqli_query($con, $get_pro); 	
 			while($row_pro=mysqli_fetch_array($run_pro)){
 			
 				$pro_id = $row_pro['product_id'];
@@ -119,7 +117,7 @@
 				$pro_title = $row_pro['product_title'];
 				$pro_price = $row_pro['product_price'];
 				$pro_image = $row_pro['product_image'];
-			
+				$rating = getRating($pro_id);
 				echo "
 					<a href='details.php?pro_id=$pro_id'>
 						<div id='single_product'>
@@ -130,12 +128,14 @@
 							
 							<p><b>Price: $pro_price INR</b></p>
 										
-							<a href='index.php?pro_id=$pro_id'><button style='width:100%'>Add to Cart</button></a>
-						
-						</div>
-					</a>
+							<a href='index.php?pro_id=$pro_id'><button style='width:100%'>Add to Cart</button></a>";
+		if($rating > 0){	echo "<br/> Rating : $rating";	}
 				
-				";
+		else{	echo "<br>Not Rated Yet!";	}
+		
+		echo "	</div> </a>";
+
+		
 			
 			}
 			?>

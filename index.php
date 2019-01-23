@@ -61,17 +61,17 @@ include("functions/functions.php");
 	  </ul>
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
-	      <img src="includes/images/ads1.png" alt="Los Angeles" width="1100" height="500">
+	      <img src="includes/images/iphone.png" alt="Los Angeles" width="1100" height="500">
 	      <div class="carousel-caption">
 	      </div>   
 	    </div>
 	    <div class="carousel-item">
-	      <img src="includes/images/2nd.png" alt="Chicago" width="1100" height="500">
+	      <img src="includes/images/vivo.png" alt="Chicago" width="1100" height="500">
 	      <div class="carousel-caption">
 	      </div>   
 	    </div>
 	    <div class="carousel-item">
-	      <img src="includes/images/ads.png" alt="New York" width="1100" height="500">
+	      <img src="includes/images/ipad.png" alt="New York" width="1100" height="500">
 	      <div class="carousel-caption">
 	      </div>   
 	    </div>

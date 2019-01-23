@@ -13,9 +13,7 @@
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-		  
-	</head>
-	
+	</head>	
 <body>
 	
 	<!--Navigation Bar starts-->
@@ -112,15 +110,17 @@
 		
 			<div id="content_area">
 			
-				<div id="products_box">
+		<div id="products_box">
 	<?php 
+	if(isset($_GET['pro_id']) && (isset($_GET['rate']) && $_GET['rate'] != 'yes'))
+	{
+		setRating();
+	}
 	if(isset($_GET['pro_id'])){
 	
-	$product_id = $_GET['pro_id'];
-	
-	$get_pro = "select * from products where product_id='$product_id'";
-
-	$run_pro = mysqli_query($con, $get_pro); 
+		$product_id = $_GET['pro_id'];
+		$get_pro = "select * from products where product_id='$product_id'";
+		$run_pro = mysqli_query($con, $get_pro); 
 	
 	while($row_pro=mysqli_fetch_array($run_pro)){
 	
@@ -129,7 +129,8 @@
 		$pro_price = $row_pro['product_price'];
 		$pro_image = $row_pro['product_image'];
 		$pro_desc = $row_pro['product_desc'];
-	
+		$rating = getRating($pro_id);
+		
 		echo "
 				<div id='single_product'>
 				
@@ -144,18 +145,27 @@
 					<a href='index.php' style='float:left;'>Go Back</a>
 					
 					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
-				
-				</div>
-		
-		
-		";
+					";
+					if($rating < 0)
+					{
+						echo "<br/><a href='details.php?pro_id=$pro_id&rate=yes'>Rate This Product</a>";
+					}
+					else
+					{
+						echo "<br/> <b>Rating: $rating</b>";
+					}
+
+				echo "</div>";
+			if(isset($_GET['pro_id']) && ($_GET['rate'] == 'yes'))
+			{
+				include('rating.php');
+			}				
 	
-	}
+		}
 	}
 ?>
-				
+
 				</div>
-			
 			</div>
 		</div>
 		<!--Content wrapper ends-->
@@ -212,6 +222,8 @@
     $("#myModal").modal();
   });
 });
+
+
 </script>
 
 </body>
